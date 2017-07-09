@@ -13,7 +13,9 @@ var ApplicationRouter = Backbone.Router.extend({
 	routes : {
 		"students/:id" : "getStudent",
 		"teachers/:id" : "getTeacher",
-		"*actions" : "default"
+		"buscar" : "buscar",
+		"contacto" : "contacto",
+		"*actions" : "home"
 	}
 });
 
@@ -27,8 +29,16 @@ router.on("route:getTeacher", function(id){
 	console.log("getting teacher " + id);
 });
 
-router.on("route:default", function(){
-	console.log("default");
+router.on("route:home", function(){
+	console.log("HOME");
+});
+
+router.on("route:buscar", function(){
+	console.log("BUSCAR");
+});
+
+router.on("route:contacto", function(){
+	console.log("CONTACTO");
 });
 
 Backbone.history.start();
