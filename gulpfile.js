@@ -63,9 +63,9 @@ gulp.task('layout', ['fonts', 'layout-css', 'layout-js']);
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-gulp.task('index', function(){
-  gulp.src([DESTINO + 'assets/app.min.js',  MEDIA + 'assets/layouts/home.js',  MEDIA + 'assets/index/index.js'])
-    .pipe(uglify())
+gulp.task('home', function(){
+  gulp.src([DESTINO + 'assets/app.min.js',  MEDIA + 'assets/layouts/home.js',  MEDIA + 'assets/home/js/index.js'])
+    //.pipe(uglify())
     .pipe(plumber())
     .pipe(concatJs('app.min.js'))
     .pipe(gulp.dest(DESTINO + 'home'))
