@@ -8,7 +8,8 @@ var plumber = require('gulp-plumber');
 var watch = require('gulp-watch');
 var livereload = require('gulp-livereload');
 var BASE_URL = 'http://localhost/animalitos/public/';
-var DESTINO = 'public/';
+var DESTINO = 'public/dist/';
+var MEDIA = 'public/'
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -20,7 +21,7 @@ function errorLog(error){
 gulp.task('watch', function(){
     var server = livereload();
 
-    gulp.watch(['media/layouts/**', 'media/assets/**/**/**'], ['login', 'home']);
+    gulp.watch([MEDIA + 'layouts/**',  DESTINO + '**/**/**'], ['login', 'home']);
 });
 
 gulp.task('default', function(){
@@ -31,68 +32,43 @@ gulp.task('demo', function(){
   gulp.src('assets/*/*.js')
     .pipe(plumber())
     .pipe(uglify())
-    .pipe(gulp.dest('media/dist/js'));
+    .pipe(gulp.dest(MEDIA + 'dist/js'));
 });
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 gulp.task('fonts', function() {
-  	gulp.src(['media/bower_components/font-awesome/fonts/*', 'media/bower_components/bootstrap/fonts/*'])
+  	gulp.src([MEDIA + 'bower_components/font-awesome/fonts/*', MEDIA + 'bower_components/bootstrap/fonts/*'])
     .pipe(plumber())
-      .pipe(gulp.dest('media/dist/assets'));
+      .pipe(gulp.dest(DESTINO + 'assets'));
 });
 
 gulp.task('layout-css', function() {
-      gulp.src(['media/dist/assets/icons.min.css','media/bower_components/bootstrap/dist/css/bootstrap.min.css', 'media/bower_components/font-awesome/css/font-awesome.min.css', 'media/bower_components/unify-pp/css/styles.css'])
+      gulp.src([MEDIA + 'bower_components/bootstrap/dist/css/bootstrap.min.css', MEDIA + 'bower_components/font-awesome/css/font-awesome.min.css'])
       .pipe(plumber())
       .pipe(concatCss('styles.min.css'))
       .pipe(minifyCss())
       .pipe(replace('../../../font-awesome/fonts/', BASE_URL + 'dist/assets/'))
-      .pipe(gulp.dest('media/dist/assets'));
+      .pipe(gulp.dest(DESTINO + 'assets'));
 });
 
 gulp.task('layout-js', function() {
-    gulp.src(['media/bower_components/jquery/dist/jquery.min.js', 'media/bower_components/bootstrap/dist/js/bootstrap.min.js', 'media/bower_components/underscore/underscore-min.js', 'media/bower_components/handlebars/handlebars.min.js', 'media/bower_components/swp-plugins/assets/js/mootools-core.min.js', 'media/bower_components/swp-plugins/assets/js/mootools.min.js', 'media/bower_components/swp-plugins/assets/js/mootools-interfaces.min.js'])
+    gulp.src([MEDIA + 'bower_components/jquery/dist/jquery.min.js', MEDIA + 'bower_components/bootstrap/dist/js/bootstrap.min.js', MEDIA + 'bower_components/underscore/underscore-min.js', MEDIA + 'bower_components/backbone/backbone-min.js', MEDIA + 'bower_components/handlebars/handlebars.min.js'])
     .pipe(plumber())
     .pipe(concatJs('app.min.js'))
-    .pipe(gulp.dest('media/dist/assets'));
+    .pipe(gulp.dest(DESTINO + 'assets'));
 });
 
 gulp.task('layout', ['fonts', 'layout-css', 'layout-js']);
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-gulp.task('login', function(){
-  gulp.src(['media/bower_components/jquery/dist/jquery.min.js', 'media/bower_components/handlebars/handlebars.min.js', 'media/assets/layouts/blank.js', 'media/assets/login/js/index.js'])
+gulp.task('index', function(){
+  gulp.src([DESTINO + 'assets/app.min.js',  MEDIA + 'assets/layouts/home.js',  MEDIA + 'assets/index/index.js'])
     .pipe(uglify())
     .pipe(plumber())
     .pipe(concatJs('app.min.js'))
-    .pipe(gulp.dest('media/dist/login'))
-    .pipe(livereload());
-
-  gulp.src(['media/dist/assets/styles.min.css','media/assets/login/css/index.css'])
-    .pipe(plumber())
-    .pipe(concatCss('styles.min.css'))
-    .pipe(minifyCss())
-    .on('error', errorLog)
-    .pipe(gulp.dest('media/dist/login'))
-    .pipe(livereload());
-});
-
-gulp.task('home', function(){
-  gulp.src(['media/bower_components/jquery/dist/jquery.min.js', 'media/bower_components/handlebars/handlebars.min.js', 'media/assets/layouts/home.js', 'media/assets/home/js/index.js'])
-    .pipe(uglify())
-    .pipe(plumber())
-    .pipe(concatJs('app.min.js'))
-    .pipe(gulp.dest('media/dist/home'))
-    .pipe(livereload());
-
-  gulp.src(['media/dist/assets/styles.min.css','media/assets/home/css/index.css'])
-    .pipe(plumber())
-    .pipe(concatCss('styles.min.css'))
-    .pipe(minifyCss())
-    .on('error', errorLog)
-    .pipe(gulp.dest('media/dist/home'))
+    .pipe(gulp.dest(DESTINO + 'home'))
     .pipe(livereload());
 });
 

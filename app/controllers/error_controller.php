@@ -1,6 +1,6 @@
 <?php
 
-class Controller_Error extends Controller
+class ErrorController extends Controller
 {
     public static function error_404()
     {

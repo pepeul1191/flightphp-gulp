@@ -16,6 +16,10 @@
 
  	$ composer dump-autoload -o && npm install && bower install 
 
+### Generar 'dist'
+	
+	$ gulp layout 
+
  Thanks/Credits
 
     Pepe Valdivia: developer Software Web Perú [http://softweb.pe]

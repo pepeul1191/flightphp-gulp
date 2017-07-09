@@ -1,6 +1,6 @@
 <?php
 
-class Controller_Demo extends Controller
+class DemoController extends Controller
 {
     public static function hello() 
     {
