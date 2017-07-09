@@ -1,0 +1,5 @@
+/app/templates_c
+/app/vendor
+/public/bower_components
+/node_modules
+package-lock.json
