@@ -10,7 +10,7 @@
 
 ### Instalación - Despliegue
 
- 	$ composer update
+ 	$ composer install
 
 ### Para recargar el autoload de clases:
 
