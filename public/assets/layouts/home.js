@@ -20,9 +20,10 @@ $( document ).ready(function() {
 });
 
 Handlebars.registerHelper( "menuModulos", function (){
+	console.log("XD");
 	var rpta = '';
 	MODULOS_JSON.forEach(function(modulo) {
-	    rpta = rpta + '<li class="dropdown"><a href="' + BASE_URL + modulo['url'] + '" class="dropdown-toggle" data-toggle="dropdown">' + modulo['nombre'] + '</a></li>';
+	    rpta = rpta + '<li><a href="' + BASE_URL + modulo['url'] + '">' + modulo['nombre'] + '</a></li>';
 	});
 	return rpta;    
 });
