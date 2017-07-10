@@ -18,7 +18,7 @@
 
 ### Generar 'dist'
 	
-	$ gulp layout 
+	$ gulp layout && grub home 
 
  Thanks/Credits
 

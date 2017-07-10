@@ -16,11 +16,10 @@ $( document ).ready(function() {
 	};
 	var template_compiled = template(data);
 
-	$('body').html(template_compiled);
+	$("#header-app").html(template_compiled);
 });
 
 Handlebars.registerHelper( "menuModulos", function (){
-	console.log("XD");
 	var rpta = '';
 	MODULOS_JSON.forEach(function(modulo) {
 	    rpta = rpta + '<li><a href="' + BASE_URL + modulo['url'] + '">' + modulo['nombre'] + '</a></li>';
