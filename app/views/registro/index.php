@@ -41,17 +41,15 @@
 <script type="text/javascript">
 	var Usuario = Backbone.Model.extend({
 	   initialize: function() {
-           //console.log("UsuarioModel");
-       }, hola: function(){
-       		console.log("HOLAAAA");
-       }
+         //console.log("UsuarioModel");
+         this.valido = false;
+      }
 	});
 
 	var Paso1View = Backbone.View.extend({
 		el: '#paso1',
 		initialize: function(){
-			//this.render();
-			console.log("initialize");
+	
 		},
 		events: {
 		    "keyup #txtUsuario": "validarUsuarioRepetido"
@@ -66,31 +64,24 @@
 		},
 		validarUsuarioRepetido: function(event) {
       	var textoUsuario = this.nombre;
-      	var usuario_temp = $("#txtUsuario").val();
-      	console.log(usuario_temp);
+      	$.ajax({
+      		type: "POST",
+      		url: BASE_URL + "registro/validar_usuario_repetido",
+      		data: "nombre=" + $("#txtUsuario").val(),
+      		async: false,
+      		success: function(data){
+      			if(data == 1){
+      				$("#txtUsuario").css("color", "red"); $("#txtUsuario").css("border-color", "red");
+      			}else{
+      				$("#txtUsuario").css("color", ""); $("#txtUsuario").css("border-color", "");
+      			}
+      		},
+      		error: function(data){
+
+      		}
+      	});
 		}
 	});
-
-	/*var Paso1View = Backbone.View.extend({
-		//id: '#registro_paso_1_form',
-		events: {
-		    "keyup #txtUsuario": "validarUsuarioRepetido"
-		},
-	   initialize: function() {
-	   	 this.nombre =  $("#txtUsuario").val();
-         this.correo =  $("#txtCorreo").val();
-         this.correo_repetido =  $("#txtCorreoRepetir").val();
-         this.contrasenia =  $("#txtCorreo").val();
-         this.contrasenia_repetida =  $("#txtContraseniaRepetir").val();
-         //this.usuario = new Usuario();
-         //this.model.view = this;
-      },
-      validarUsuarioRepetido: function(event) {
-      	var textoUsuario = this.nombre;
-      	console.log(textoUsuario);
-      	//this.model.hola();
-		}
-	});*/
 
 	$( document ).ready(function() {
 		var usuario = new Usuario();

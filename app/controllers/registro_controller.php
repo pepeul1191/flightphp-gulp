@@ -20,6 +20,16 @@ class RegistroController extends Controller
         Flight::render('registro/index', $partial_data, 'partial');
         Flight::render('layouts/blank', $layout_data);
     }
+
+    public static function validar_usuario_repetido()
+    {
+        $nombre = Flight::request()->data->nombre;
+        parent::get_library('httparty');
+        $httparty = new Httparty(Configuration::get('accesos') . 'usuario/validar_nombre_repetido?usuario=' . $nombre); 
+        $httparty->post();
+
+        echo $httparty->get_rpta();
+    }
 }
 
 ?>
