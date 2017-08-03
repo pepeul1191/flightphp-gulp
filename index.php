@@ -17,6 +17,7 @@ Configuration::init(
 Flight::set('flight.views.path', 'app/views');
 
 Flight::route('GET /', array('HomeController','index'));
+Flight::route('GET /registro', array('RegistroController','index'));
 Flight::route('GET /error/404', array('ErrorController','error_404'));
 
 #Flight::route('GET /demo', array('DemoController','hello'));

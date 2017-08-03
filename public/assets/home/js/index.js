@@ -17,7 +17,7 @@ var HomeView = Backbone.View.extend({
 	},
 	render: function() {
 		var data = { };
-		var source = $('#yield').html();
+		var source = $('#paso1-template').html();
 		var template = Handlebars.compile(source);
 		var template_compiled = template(data);
 		console.log("RENDER???? 2");

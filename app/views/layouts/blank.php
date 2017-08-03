@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" />
    <link rel="stylesheet" type="text/css" href="<?php echo Configuration::get('static_url') . $css?>" />
+   <script src="<?php echo Configuration::get('static_url') . $js?>" type="text/javascript"></script>
 </head>
 <body>
     <!-- Inicio Modal -->
@@ -35,6 +36,7 @@
                     {{> menu_modulos}}
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{{BASE_URL}}registro">Registrarse</a></li>
                         <li><a href="../navbar-fixed-top/">Login</a></li>
                     </ul>
                 </div>
@@ -63,6 +65,6 @@
         var MODULOS_JSON = JSON.parse('<?php echo $menu;?>');
         var DATA = <?php if ($data != ''){?>JSON.parse('<?php echo "data";?>')<?php }else{?>''<?php }?>; 
     </script>
-    <script src="<?php echo Configuration::get('static_url') . $js?>" type="text/javascript"></script>
+    
 </body>
 </html>
