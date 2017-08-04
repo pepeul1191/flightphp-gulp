@@ -30,6 +30,16 @@ class RegistroController extends Controller
 
         echo $httparty->get_rpta();
     }
+
+    public static function validar_correo_repetido()
+    {
+        $correo = Flight::request()->data->correo;
+        parent::get_library('httparty');
+        $httparty = new Httparty(Configuration::get('accesos') . 'usuario/validar_correo_repetido?correo=' . $correo); 
+        $httparty->post();
+
+        echo $httparty->get_rpta();
+    }
 }
 
 ?>

@@ -19,6 +19,7 @@ Flight::set('flight.views.path', 'app/views');
 Flight::route('GET /', array('HomeController','index'));
 Flight::route('GET /registro', array('RegistroController','index'));
 Flight::route('POST /registro/validar_usuario_repetido', array('RegistroController','validar_usuario_repetido'));
+Flight::route('POST /registro/validar_correo_repetido', array('RegistroController','validar_correo_repetido'));
 Flight::route('GET /error/404', array('ErrorController','error_404'));
 
 #Flight::route('GET /demo', array('DemoController','hello'));

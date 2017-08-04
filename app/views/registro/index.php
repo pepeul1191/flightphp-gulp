@@ -1,4 +1,6 @@
-<div>
+<div class="col-md-4">
+</div>
+<div class="col-md-8">
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#paso1" aria-controls="paso1" role="tab" data-toggle="tab">PASO 1</a></li>
@@ -16,11 +18,11 @@
 <script id="paso1-template" type="text/x-handlebars-template">
   	<form id="registro_paso_1_form">
    	<div class="form-group">
-		   <label for="txtUsuario">Nombre de Usuario</label>
+		   <label class="control-label" for="txtUsuario">Nombre de Usuario</label><span style="color:#a94442; margin-left: 10px"></span>
 		   <input type="text" class="form-control" id="txtUsuario" placeholder="">
 		</div>
 		<div class="form-group">
-		   <label for="txtCorreo">Correo Electrónico</label>
+		   <label class="control-label" for="txtCorreo">Correo Electrónico</label><span style="color:#a94442; margin-left: 10px"></span>
 		   <input type="email" class="form-control" id="txtCorreo" placeholder="">
 		</div>
 		<div class="form-group">
@@ -28,7 +30,7 @@
 		   <input type="email" class="form-control" id="txtCorreoRepetir" placeholder="">
 		</div>
 		<div class="form-group">
-		   <label for="txtConstrasenia">Contraseñaa</label>
+		   <label for="txtConstrasenia">Contraseñaa</label><span style="color:#a94442; margin-left: 10px"></span>
 		   <input type="password" class="form-control" id="txtConstrasenia" placeholder="">
 		</div>
 		<div class="form-group">
@@ -52,7 +54,8 @@
 	
 		},
 		events: {
-		    "keyup #txtUsuario": "validarUsuarioRepetido"
+		    "keyup #txtUsuario": "validarUsuarioRepetido",
+		    "keyup #txtCorreo": "validarCorreoRepetido"
 		},
 		render: function() {
 			var data = { };
@@ -63,21 +66,42 @@
 			return this;
 		},
 		validarUsuarioRepetido: function(event) {
-      	var textoUsuario = this.nombre;
       	$.ajax({
       		type: "POST",
       		url: BASE_URL + "registro/validar_usuario_repetido",
       		data: "nombre=" + $("#txtUsuario").val(),
       		async: false,
       		success: function(data){
-      			if(data == 1){
-      				$("#txtUsuario").css("color", "red"); $("#txtUsuario").css("border-color", "red");
+      			if(data >= 1){
+      				$("#txtUsuario").parent().addClass("has-error");
+      				$("#txtUsuario").parent().find("span").html("El nombre de usuario registrado ya se encuentra en uso");
       			}else{
-      				$("#txtUsuario").css("color", ""); $("#txtUsuario").css("border-color", "");
+      				$("#txtUsuario").parent().removeClass("has-error");
+      				$("#txtUsuario").parent().find("span").html("");
       			}
       		},
       		error: function(data){
-
+      			//FALTA MANEJAR EL ERROR DEL AJAX
+      		}
+      	});
+		},
+		validarCorreoRepetido: function(event) {
+      	$.ajax({
+      		type: "POST",
+      		url: BASE_URL + "registro/validar_correo_repetido",
+      		data: "correo=" + $("#txtCorreo").val(),
+      		async: false,
+      		success: function(data){
+      			if(data >= 1){
+      				$("#txtCorreo").parent().addClass("has-error");
+      				$("#txtCorreo").parent().find("span").html("El correo ya se encuentra asociado a un usuario registrado");
+      			}else{
+      				$("#txtCorreo").parent().removeClass("has-error");
+      				$("#txtCorreo").parent().find("span").html("");
+      			}
+      		},
+      		error: function(data){
+      			//FALTA MANEJAR EL ERROR DEL AJAX
       		}
       	});
 		}
