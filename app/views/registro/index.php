@@ -26,7 +26,7 @@
 		   <input type="email" class="form-control" id="txtCorreo" placeholder="">
 		</div>
 		<div class="form-group">
-		   <label for="txtCorreoRepetir">Repetir Correo Electrónico</label>
+		   <label class="control-label" for="txtCorreoRepetir">Repetir Correo Electrónico</label><span style="color:#a94442; margin-left: 10px"></span>
 		   <input type="email" class="form-control" id="txtCorreoRepetir" placeholder="">
 		</div>
 		<div class="form-group">
@@ -54,8 +54,9 @@
 	
 		},
 		events: {
-		    "keyup #txtUsuario": "validarUsuarioRepetido",
-		    "keyup #txtCorreo": "validarCorreoRepetido"
+		    "keyup #txtUsuario": "validarUsuarioRepetido", 
+		    "keyup #txtCorreo": "validarCorreoRepetido", 
+		    "focusout #txtCorreoRepetir": "validarCorreoIgual", 
 		},
 		render: function() {
 			var data = { };
@@ -104,6 +105,15 @@
       			//FALTA MANEJAR EL ERROR DEL AJAX
       		}
       	});
+		},
+		validarCorreoIgual: function(event) {
+			if($("#txtCorreo").val() != $("#txtCorreoRepetir").val()){
+				$("#txtCorreoRepetir").parent().addClass("has-error");
+      		$("#txtCorreoRepetir").parent().find("span").html("El correo ingresado no coincide con el primero");
+			}else{
+				$("#txtCorreoRepetir").parent().removeClass("has-error");
+      		$("#txtCorreoRepetir").parent().find("span").html("");
+			}
 		}
 	});
 
