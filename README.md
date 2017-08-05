@@ -20,6 +20,12 @@
 	
 	$ gulp layout && grub home 
 
+### TODO
+
++ Validación del formulario de registro valida como correo no registrado en la base de datos si al final del correo se añade un espacio
+
+---
+
  Thanks/Credits
 
     Pepe Valdivia: developer Software Web Perú [http://softweb.pe]
