@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" />
    <link rel="stylesheet" type="text/css" href="<?php echo Configuration::get('static_url') . $css?>" />
    <script src="<?php echo Configuration::get('static_url') . $js?>" type="text/javascript"></script>
+   <style type="text/css"></style>
 </head>
 <body>
     <!-- Inicio Modal -->
@@ -29,7 +30,10 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Servicio de Monta</a>
+                <a class="navbar-brand" href="#">
+                <div class="icon icon-chiguagua icon-brand"></div>
+                <span>Servicio de Monta</span>
+                </a>
               </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -65,6 +69,5 @@
         var MODULOS_JSON = JSON.parse('<?php echo $menu;?>');
         var DATA = <?php if ($data != ''){?>JSON.parse('<?php echo "data";?>')<?php }else{?>''<?php }?>; 
     </script>
-    
 </body>
 </html>

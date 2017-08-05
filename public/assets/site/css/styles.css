@@ -1,0 +1,7 @@
+label{font-weight: 400;}
+.form-control, .btn{border-radius: 0px;}
+.navbar-brand > .icon-brand {position: relative; float: left; font-size: 25px; margin-right: 10px;}
+#logo-navbar{position: relative; float: left; margin-right: 10px;}
+.navbar-brand{padding-top: 13px;}
+.navbar-brand>span {margin-top: 2px; position: relative; float: left;}
+.texto-validacion{color:#a94442; margin-left: 10px}

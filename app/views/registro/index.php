@@ -1,42 +1,30 @@
 <div class="col-md-4">
+	<div class="icon icon-chiguagua"></div>
 </div>
-<div class="col-md-8">
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#paso1" aria-controls="paso1" role="tab" data-toggle="tab">PASO 1</a></li>
-    <li role="presentation"><a href="#paso2" aria-controls="paso2" role="tab" data-toggle="tab">PASO 2</a></li>
-  </ul>
-  <!-- Tab panes -->
-  <div class="tab-content">
-   <div role="tabpanel" class="tab-pane active" id="paso1"></div>
-   <div role="tabpanel" class="tab-pane" id="paso2">
-   		PROFILE
-   </div>
-  </div>
-</div>
+<div class="col-md-8" id="div-registro"></div>
 
-<script id="paso1-template" type="text/x-handlebars-template">
+<script id="registro-template" type="text/x-handlebars-template">
   	<div class="form-group">
-	   <label class="control-label" for="txtUsuario">Nombre de Usuario</label><span style="color:#a94442; margin-left: 10px"></span>
+	   <label class="control-label" for="txtUsuario">Nombre de Usuario</label><span class="texto-validacion"></span>
 	   <input type="text" class="form-control" id="txtUsuario" placeholder="">
 	</div>
 	<div class="form-group">
-	   <label class="control-label" for="txtCorreo">Correo Electrónico</label><span style="color:#a94442; margin-left: 10px"></span>
+	   <label class="control-label" for="txtCorreo">Correo Electrónico</label><span class="texto-validacion"></span>
 	   <input type="text" class="form-control" id="txtCorreo" placeholder="">
 	</div>
 	<div class="form-group">
-	   <label class="control-label" for="txtCorreoRepetir">Repetir Correo Electrónico</label><span style="color:#a94442; margin-left: 10px"></span>
+	   <label class="control-label" for="txtCorreoRepetir">Repetir Correo Electrónico</label><span class="texto-validacion"></span>
 	   <input type="text" class="form-control" id="txtCorreoRepetir" placeholder="">
 	</div>
 	<div class="form-group">
-	   <label class="control-label" for="txtContrasenia">Contraseña</label><span style="color:#a94442; margin-left: 10px"></span>
+	   <label class="control-label" for="txtContrasenia">Contraseña</label><span class="texto-validacion"></span>
 	   <input type="password" class="form-control" id="txtContrasenia" placeholder="">
 	</div>
 	<div class="form-group">
-	   <label class="control-label" for="txtContraseniaRepetir">Repetir Contraseña</label><span style="color:#a94442; margin-left: 10px"></span>
+	   <label class="control-label" for="txtContraseniaRepetir">Repetir Contraseña</label><span class="texto-validacion"></span>
 	   <input type="password" class="form-control" id="txtContraseniaRepetir" placeholder="">
 	</div>
-	<button type="submit" class="btn btn-default" id="btnGuardarPaso1">Guardar y Pasar al Paso 2</button>
+	<button type="submit" class="btn btn-primary" id="btnGuardarPaso1">Guardar y Pasar al Paso 2</button>
 </script>
 <script type="text/javascript">
 	var Usuario = Backbone.Model.extend({
@@ -64,7 +52,7 @@
 	});
 
 	var Paso1View = Backbone.View.extend({
-		el: '#paso1',
+		el: '#div-registro',
 		initialize: function(){
 	
 		},
@@ -80,7 +68,7 @@
 		},
 		render: function() {
 			var data = { };
-			var source = $('#paso1-template').html();
+			var source = $('#registro-template').html();
 			var template = Handlebars.compile(source);
 			var template_compiled = template(data);
 			this.$el.html(template_compiled);

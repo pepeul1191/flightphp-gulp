@@ -38,17 +38,18 @@ gulp.task('demo', function(){
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 gulp.task('fonts', function() {
-  	gulp.src([MEDIA + 'bower_components/font-awesome/fonts/*', MEDIA + 'bower_components/bootstrap/fonts/*'])
+  	gulp.src([MEDIA + 'bower_components/font-awesome/fonts/*', MEDIA + 'bower_components/bootstrap/fonts/*', MEDIA + 'assets/fontastic/fonts/*'])
     .pipe(plumber())
       .pipe(gulp.dest(DESTINO + 'assets'));
 });
 
 gulp.task('layout-css', function() {
-      gulp.src([MEDIA + 'bower_components/bootstrap/dist/css/bootstrap.min.css', MEDIA + 'bower_components/font-awesome/css/font-awesome.min.css'])
+      gulp.src([MEDIA + 'bower_components/bootstrap/dist/css/bootstrap.min.css', MEDIA + 'bower_components/font-awesome/css/font-awesome.min.css', MEDIA + 'assets/fontastic/styles.css', MEDIA + 'assets/site/css/styles.css'])
       .pipe(plumber())
       .pipe(concatCss('styles.min.css'))
       .pipe(minifyCss())
       .pipe(replace('../../../font-awesome/fonts/', BASE_URL + 'dist/assets/'))
+      .pipe(replace('../../../assets/fontastic/fonts/', 'assets/'))
       .pipe(gulp.dest(DESTINO + 'assets'));
 });
 

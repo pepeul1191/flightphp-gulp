@@ -23,6 +23,7 @@
 ### TODO
 
 + Validación del formulario de registro valida como correo no registrado en la base de datos si al final del correo se añade un espacio
++ El menú del sitio debe ser un backboneView con su propio model
 
 ---
 
