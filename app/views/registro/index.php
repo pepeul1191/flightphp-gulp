@@ -188,6 +188,7 @@
 			}
 		}, 
 		validarContraseniaIgual: function(event) {
+			this.validarContraseniaLleno();
 			if($("#txtContrasenia").val() != $("#txtContraseniaRepetir").val()){
 				$("#txtContraseniaRepetir").parent().addClass("has-error");
       		$("#txtContraseniaRepetir").parent().find("span").html("La contraseña ingresada no coincide con la primera");
@@ -225,6 +226,7 @@
 			this.validarCorreoRepetidoLleno();
 			this.validarContraseniaLleno();
 			this.validarContraseniaRepetidoLleno();
+			this.validarContraseniaIgual();
 			this.model.validar();
 			if(this.model.get("valido") == true){
 				console.log(this.model.toJSON());
