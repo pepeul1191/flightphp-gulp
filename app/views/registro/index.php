@@ -29,7 +29,7 @@
 	   <input type="email" class="form-control" id="txtCorreoRepetir" placeholder="">
 	</div>
 	<div class="form-group">
-	   <label for="txtContrasenia">Contraseña</label>
+	   <label class="control-label" for="txtContrasenia">Contraseña</label><span style="color:#a94442; margin-left: 10px"></span>
 	   <input type="password" class="form-control" id="txtContrasenia" placeholder="">
 	</div>
 	<div class="form-group">
@@ -159,6 +159,25 @@
 	      		this.model.set({correo_valido : true});
 				}
 			}
+			this.validarCorreoFormato();
+		}, 
+		validarCorreoLleno: function(event) {
+			if($("#txtCorreo").val() == ""){
+				$("#txtCorreo").parent().addClass("has-error");
+      		$("#txtCorreo").parent().find("span").html("Tiene que ingrear un correo");
+      		this.model.set({correo_valido : false});
+			}
+		}, 
+		validarContraseniaLleno: function(event) {
+			if($("#txtContrasenia").val() == ""){
+				$("#txtContrasenia").parent().addClass("has-error");
+      		$("#txtContrasenia").parent().find("span").html("Tiene que ingrear su contraseña");
+      		this.model.set({correo_valido : false});
+			}else{
+				$("#txtContrasenia").parent().removeClass("has-error");
+      		$("#txtContrasenia").parent().find("span").html("");
+      		this.model.set({correo_valido : true});
+			}
 		}, 
 		validarContraseniaIgual: function(event) {
 			if($("#txtContrasenia").val() != $("#txtContraseniaRepetir").val()){
@@ -171,7 +190,25 @@
       		this.model.set({contrasenia_valido : true});
 			}
 		}, 
+		validarCorreoFormato: function(event) {
+			   var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			   var rpta = re.test($("#txtCorreo").val());
+			   console.log(rpta);
+			   if(rpta == false){
+			   	$("#txtCorreo").parent().addClass("has-error");
+      			$("#txtCorreo").parent().find("span").html("El correo ingresado no es de un formato válido");
+			   	this.model.set({contrasenia_valido : false});
+			   }else{
+			   	$("#txtCorreo").parent().removeClass("has-error");
+      			$("#txtCorreo").parent().find("span").html("");
+			   	this.model.set({contrasenia_valido : true});
+			   }
+		}, 
 		GuardarPaso1: function(event){
+			//this.validarContraseniaIgual();
+			this.validarUsuarioLleno();
+			this.validarCorreoLleno();
+			this.validarContraseniaLleno();
 			this.model.validar();
 			if(this.model.get("valido") == true){
 				console.log(this.model.toJSON());
@@ -197,6 +234,8 @@
 	      		}
 	      	});
 				*/
+			}else{
+				
 			}
 		}
 	});
