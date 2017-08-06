@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" />
    <link rel="stylesheet" type="text/css" href="<?php echo Configuration::get('static_url') . $css?>" />
+    <script type="text/javascript">
+        var BASE_URL = '<?php echo Configuration::get('base_url'); ?>';
+        var STATICS_URL  = '<?php echo Configuration::get('static_url'); ?>';
+        var MODULOS_JSON = JSON.parse('<?php echo $menu;?>');
+        var DATA = <?php if ($data != ''){?>JSON.parse('<?php echo "data";?>')<?php }else{?>''<?php }?>; 
+    </script>
    <script src="<?php echo Configuration::get('static_url') . $js?>" type="text/javascript"></script>
    <style type="text/css"></style>
 </head>
@@ -41,7 +47,7 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="{{BASE_URL}}registro">Registrarse</a></li>
-                        <li><a href="../navbar-fixed-top/">Login</a></li>
+                        <li><a href="{{BASE_URL}}#/login">Login</a></li>
                     </ul>
                 </div>
               <!--/.nav-collapse -->
@@ -62,12 +68,6 @@
     </script>
     <script id="ConcatoTemplate" type="text/x-handlebars-template">
             <h1>CONTACTO</h1>
-    </script>
-    <script type="text/javascript">
-        var BASE_URL = '<?php echo Configuration::get('base_url'); ?>';
-        var STATICS_URL  = '<?php echo Configuration::get('static_url'); ?>';
-        var MODULOS_JSON = JSON.parse('<?php echo $menu;?>');
-        var DATA = <?php if ($data != ''){?>JSON.parse('<?php echo "data";?>')<?php }else{?>''<?php }?>; 
     </script>
 </body>
 </html>

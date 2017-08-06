@@ -1,5 +1,9 @@
 <div class="col-md-4">
-	<div class="icon icon-chiguagua"></div>
+Ventajas de estar registrado
+	<li>Es totalmente gratuito y tardarás menos de 2 minutos.</li>
+	<li>Podrás inscribir tu/s perro/s en la comunidad</li>
+	<li>Podrás participar en el foro, publicar fotos, conocer a más amigos y también, aprender cosas nuevas</li>
+	<li>Podrás votar y dejar tus comentarios en los artículos, fotos de los usuarios y otras muchas secciones</li>
 </div>
 <div class="col-md-8" id="div-registro"></div>
 
