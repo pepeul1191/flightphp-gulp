@@ -6,6 +6,58 @@ Archivos que usa :
 	+ views/login.js
 */
 
+const RootView = Marionette.View.extend({
+	template: _.template('<h1>Marionette says hello!</h1>')
+});
+
+var Router = Marionette.AppRouter.extend({
+routes: {
+    'email/:email': 'showEmail',
+	"buscar" : "showBuscar",
+	"contacto" : "showContacto",
+	"registro" : "showRegistro",
+	"login" : "showLogin", 
+	"" : "showHome", 
+	"*actions" : "showHome"
+  },
+  showEmail: function(email) {
+    // show the email
+    alert(email);
+  },
+  	showHome: function(){
+		var homeView = new HomeView({});
+		homeView.render();
+	},
+	showBuscar: function(){
+		var buscarView = new BuscarView({});
+		buscarView.render();
+	},
+	showContacto: function(){
+		var contactoView = new ContactoView({});
+		contactoView.render();
+	},
+	showRegistro: function(){
+		var registroView = new RegistroView({});
+		registroView.render();
+	},
+	showLogin: function(){
+		var loginView = new LoginView({});
+		loginView.render();
+	}
+});
+
+const App = Marionette.Application.extend({
+  region: '#body-app',
+  onStart() {
+  	var router = new Router();
+   Backbone.history.start();
+  }
+});
+
+const myApp = new App();
+myApp.start();
+
+/*
 var ApplicationRouter = Backbone.Router.extend({
 	routes : {
 		"students/:id" : "getStudent",
@@ -59,3 +111,4 @@ router.on("route:login", function(){
 });
 
 Backbone.history.start();
+*/

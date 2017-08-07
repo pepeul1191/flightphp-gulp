@@ -11,7 +11,6 @@
         var MODULOS_JSON = JSON.parse('<?php echo $menu;?>');
         var DATA = <?php if ($data != ''){?>JSON.parse('<?php echo "data";?>')<?php }else{?>''<?php }?>; 
     </script>
-   <script src="<?php echo Configuration::get('static_url') . $js?>" type="text/javascript"></script>
    <style type="text/css"></style>
 </head>
 <body>
@@ -65,5 +64,6 @@
         <?php echo $partial; ?>
         <!-- Fin yield-->
     </script>
+    <script src="<?php echo Configuration::get('static_url') . $js?>" type="text/javascript"></script>
 </body>
 </html>

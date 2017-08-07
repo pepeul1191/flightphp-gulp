@@ -54,7 +54,7 @@ gulp.task('layout-css', function() {
 });
 
 gulp.task('layout-js', function() {
-    gulp.src([MEDIA + 'bower_components/jquery/dist/jquery.min.js', MEDIA + 'bower_components/bootstrap/dist/js/bootstrap.min.js', MEDIA + 'bower_components/underscore/underscore-min.js', MEDIA + 'bower_components/backbone/backbone-min.js', MEDIA + 'bower_components/handlebars/handlebars.min.js'])
+    gulp.src([MEDIA + 'bower_components/jquery/dist/jquery.min.js', MEDIA + 'bower_components/bootstrap/dist/js/bootstrap.min.js', MEDIA + 'bower_components/underscore/underscore-min.js', MEDIA + 'bower_components/backbone/backbone-min.js', MEDIA + 'bower_components/backbone.marionette/lib/backbone.marionette.min.js', MEDIA + 'bower_components/handlebars/handlebars.min.js', MEDIA + 'bower_components/requirejs/require.js'])
     .pipe(plumber())
     .pipe(concatJs('libs.min.js'))
     .pipe(gulp.dest(DESTINO + 'assets'));
