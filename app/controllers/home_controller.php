@@ -12,7 +12,7 @@ class HomeController extends Controller
         $layout_data = array(
             'title' => 'Bienvenido',
             'css' => 'dist/assets/styles.min.css',
-            'js' => 'dist/home/app.min.js',
+            'js' => 'dist/app.min.js',
             'menu' => json_encode($menu),
             'data' => ''
         );

@@ -56,7 +56,7 @@ gulp.task('layout-css', function() {
 gulp.task('layout-js', function() {
     gulp.src([MEDIA + 'bower_components/jquery/dist/jquery.min.js', MEDIA + 'bower_components/bootstrap/dist/js/bootstrap.min.js', MEDIA + 'bower_components/underscore/underscore-min.js', MEDIA + 'bower_components/backbone/backbone-min.js', MEDIA + 'bower_components/handlebars/handlebars.min.js'])
     .pipe(plumber())
-    .pipe(concatJs('app.min.js'))
+    .pipe(concatJs('libs.min.js'))
     .pipe(gulp.dest(DESTINO + 'assets'));
 });
 
@@ -64,12 +64,11 @@ gulp.task('layout', ['fonts', 'layout-css', 'layout-js']);
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-gulp.task('home', function(){
-  gulp.src([DESTINO + 'assets/app.min.js',  MEDIA + 'assets/layouts/home.js',  MEDIA + 'assets/home/js/index.js'])
+gulp.task('app', function(){
+  gulp.src([DESTINO + 'assets/libs.min.js',  MEDIA + 'layouts/home.js',  MEDIA + 'models/usuario.js', MEDIA + 'views/buscar.js', MEDIA + 'views/contacto.js',  MEDIA + 'views/registro.js', MEDIA + 'views/_form_registro.js', MEDIA + 'views/login.js',  MEDIA + 'routes/router.js'])
     //.pipe(uglify())
     .pipe(plumber())
     .pipe(concatJs('app.min.js'))
-    .pipe(gulp.dest(DESTINO + 'home'))
+    .pipe(gulp.dest(DESTINO))//.pipe(gulp.dest(DESTINO + 'home'))
     .pipe(livereload());
 });
-
