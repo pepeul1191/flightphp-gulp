@@ -27,7 +27,7 @@
     </footer>
     -->
      <!-- Fin App -->
-    <script id="home-template" type="text/x-handlebars-template">
+    <script id="header-template" type="text/x-handlebars-template">
             <nav class="navbar navbar-default">
             <div class="container-fluid">
               <div class="navbar-header">

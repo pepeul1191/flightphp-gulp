@@ -18,7 +18,7 @@ class HomeController extends Controller
         );
         $partial_data = array('mensaje' => 'Hola mundo');
         Flight::render('home/index', $partial_data, 'partial');
-        Flight::render('layouts/blank', $layout_data);
+        Flight::render('layouts/site', $layout_data);
     }
 }
 
