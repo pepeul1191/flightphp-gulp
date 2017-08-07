@@ -29,29 +29,31 @@ router.on("route:getTeacher", function(id){
 });
 
 router.on("route:home", function(){
-	console.log("HOME");
+	//console.log("HOME");
+	var homeView = new HomeView({});
+	homeView.render();
 });
 
 router.on("route:buscar", function(){
-	console.log("BUSCAR");
+	//console.log("BUSCAR");
 	var buscarView = new BuscarView({});
 	buscarView.render();
 });
 
 router.on("route:contacto", function(){
-	console.log("CONTACTO");
+	//console.log("CONTACTO");
 	var contactoView = new ContactoView({});
 	contactoView.render();
 });
 
 router.on("route:registro", function(){
-	console.log("REGISTRO");
+	//console.log("REGISTRO");
 	var registroView = new RegistroView({});
 	registroView.render();
 });
 
 router.on("route:login", function(){
-	console.log("LOGIN");
+	//console.log("LOGIN");
 	var loginView = new LoginView({});
 	loginView.render();
 });

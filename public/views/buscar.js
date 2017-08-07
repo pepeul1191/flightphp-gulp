@@ -2,16 +2,29 @@ var BuscarView = Backbone.View.extend({
 	el: '#body-app',
 	initialize: function(){
 		//this.render();
-		console.log("initialize");
+		//console.log("initialize");
 	},
 	render: function() {
+		//this.getTemplate()
+		//this.$el.html(this.getTemplate());
+		$("#targeto").html(this.getTemplate());
+		console.log("render???");
+		return this;
+	},
+	getTemplate: function() {
 		var data = { };
-		var source = $('#BuscarTemplate').html();
-		var template = Handlebars.compile(source);
-		var template_compiled = template(data);
-		console.log("RENDER???? 2");
-		this.$el.html(template_compiled);
-		console.log("RENDER???? 1");
-		 return this;
+		var template_compiled = null;
+		var html_target = this.$el;
+		$.ajax({
+		   url: STATICS_URL + 'templates/buscar.html', 
+		   type: "GET", 
+		   async: false, 
+		   success: function(source) {
+		   	html_target.html(source);
+				var template = Handlebars.compile($('#buscar-template').html());
+				template_compiled = template(data);
+		   }
+		});
+		return template_compiled;
 	}
 });

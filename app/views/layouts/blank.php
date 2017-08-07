@@ -65,11 +65,5 @@
         <?php echo $partial; ?>
         <!-- Fin yield-->
     </script>
-    <script id="BuscarTemplate" type="text/x-handlebars-template">
-            <h1>BUSCAR</h1>
-    </script>
-    <script id="ConcatoTemplate" type="text/x-handlebars-template">
-            <h1>CONTACTO</h1>
-    </script>
 </body>
 </html>
