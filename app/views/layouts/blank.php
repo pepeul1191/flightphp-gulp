@@ -22,9 +22,11 @@
      <!-- Inicio App -->
     <div id="header-app"></div>
     <div id="body-app"></div>
-    <footer class="footer" style="position: absolute; bottom: 0; width: 100%; height: 60px; background-color: #f5f5f5; ">
-        <p class="text-muted" style="margin: 20px 0; margin-left: 15px;">Place sticky footer content here.</p>
+    <!---
+    <footer class="footer">
+        <p class="text-muted" style="margin-bottom: 0px;">Place sticky footer content here.</p>
     </footer>
+    -->
      <!-- Fin App -->
     <script id="home-template" type="text/x-handlebars-template">
             <nav class="navbar navbar-default">
@@ -46,7 +48,7 @@
                     {{> menu_modulos}}
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{BASE_URL}}registro">Registrarse</a></li>
+                        <li><a href="{{BASE_URL}}#/registro">Registrarse</a></li>
                         <li><a href="{{BASE_URL}}#/login">Login</a></li>
                     </ul>
                 </div>

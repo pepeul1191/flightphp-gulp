@@ -74,29 +74,6 @@ var LoginView = Backbone.View.extend({
 		this.$el.html(this.getTemplate());
 	}, 
 	getTemplate: function() {
-		/*
-		var data = { };
-		var source = $('#paso1-template').html();
-		var template = Handlebars.compile(source);
-		var template_compiled = template(data);
-		console.log("RENDER???? 2");
-		this.$el.html(template_compiled);
-		console.log("RENDER???? 1");
-		return this;
-		*/
-		/*
-		$.ajax({
-		    url: 'templates/' + name + '.html',
-		    success: function(data) {
-		      if (Handlebars.templates === undefined) {
-		        Handlebars.templates = {};
-		      }
-		      Handlebars.templates[name] = Handlebars.compile(data);
-		    },
-		    async: false
-		  });
-		return Handlebars.templates[name];
-		*/
 		var data = { };
 		var template_compiled = null;
 		$.ajax({
@@ -112,12 +89,40 @@ var LoginView = Backbone.View.extend({
 	}
 });
 
+var RegistroView = Backbone.View.extend({
+	el: '#body-app',
+	initialize: function(){
+		//this.render();
+		console.log("initialize");
+	},
+	render: function(){
+		this.$el.html(this.getTemplate());
+	}, 
+	getTemplate: function() {
+		var data = { };
+		var template_compiled = null;
+		$.ajax({
+		   url: STATICS_URL + 'templates/registro.html', 
+		   type: "GET", 
+		   async: false, 
+		   success: function(source) {
+		   	var template = Handlebars.compile(source);
+		   	template_compiled = template(data);
+		   }
+		});
+		$.getScript( STATICS_URL + "/assets/registro/js/index.js", function( data, textStatus, jqxhr ) { });
+
+		return template_compiled;
+	}
+});
+
 var ApplicationRouter = Backbone.Router.extend({
 	routes : {
 		"students/:id" : "getStudent",
 		"teachers/:id" : "getTeacher",
 		"buscar" : "buscar",
 		"contacto" : "contacto",
+		"registro" : "registro",
 		"login" : "login", 
 		"*actions" : "home"
 	}
@@ -147,6 +152,12 @@ router.on("route:contacto", function(){
 	console.log("CONTACTO");
 	var contactoView = new ContactoView({});
 	contactoView.render();
+});
+
+router.on("route:registro", function(){
+	console.log("REGISTRO");
+	var registroView = new RegistroView({});
+	registroView.render();
 });
 
 router.on("route:login", function(){
