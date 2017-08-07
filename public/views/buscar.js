@@ -5,14 +5,14 @@ var BuscarView = Backbone.View.extend({
 		//console.log("initialize");
 	},
 	render: function() {
-		//this.getTemplate()
+		this.getTemplate()
 		//this.$el.html(this.getTemplate());
-		$("#targeto").html(this.getTemplate());
+		//$("#targeto").html(this.getTemplate());
 		console.log("render???");
 		return this;
 	},
 	getTemplate: function() {
-		var data = { };
+		var data = { BASE_URL: BASE_URL };
 		var template_compiled = null;
 		var html_target = this.$el;
 		$.ajax({
@@ -23,6 +23,7 @@ var BuscarView = Backbone.View.extend({
 		   	html_target.html(source);
 				var template = Handlebars.compile($('#buscar-template').html());
 				template_compiled = template(data);
+				$("#targeto").html(template_compiled);
 		   }
 		});
 		return template_compiled;

@@ -1,5 +1,6 @@
 /*
 Archivos que usa :
+	+ views/_form_registro.js
 	+ models/usuario.js
 */
 var RegistroView = Backbone.View.extend({
