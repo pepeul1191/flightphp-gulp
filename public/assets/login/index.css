@@ -7,14 +7,13 @@
 #icon-login-msg.success, #icon-lost-msg.success, #icon-register-msg.success { background-color: #68c3a3 !important;}
 #icon-login-msg.error, #icon-lost-msg.error, #icon-register-msg.error { background-color: #eb575b !important;}
 #img_logo { max-height: 100px; max-width: 100px;}
-
+.modal-footer>div>.btn-block{margin-bottom: 10px; font-size: 18px;}
 /* #########################################
    # override the bootstrap configs #
    ######################################### */
-
 .modal-backdrop.in { filter: alpha(opacity=50); opacity: .8;}
 .modal-content { background-color: #FFFFFF; border: 1px solid #bdc3c7; border-radius: 0px; outline: 0;}
-.modal-header { min-height: 16.43px; padding: 15px 15px 15px 15px; border-bottom: 0px;}
+.modal-header { min-height: 16.43px; padding: 15px 15px 15px 15px; border-bottom: 0px; margin-bottom: 10px;}
 .modal-body { position: relative; padding: 5px 15px 5px 15px;}
 .modal-footer { padding: 15px 15px 15px 15px; text-align: left; border-top: 0px;}
 .checkbox { margin-bottom: 0px;}
