@@ -18,7 +18,7 @@
 
 ### Generar 'dist'
 	
-	$ gulp layout && grub app 
+	$ gulp layout && gulp app && gulp error-css
 
 ### Fuentes externas de vistas HTML:
 
