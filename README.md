@@ -23,6 +23,7 @@
 ### Fuentes externas:
 
 + Login form : https://bootsnipp.com/snippets/featured/modal-login-with-jquery-effects
++ Contacto : https://bootsnipp.com/snippets/zD4p9
 + Footer : https://bootsnipp.com/snippets/GQmaP
 
 ### TODO
