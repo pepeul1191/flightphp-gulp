@@ -65,6 +65,16 @@ gulp.task('layout', ['fonts', 'layout-css', 'layout-js']);
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+gulp.task('error-css', function() {
+      gulp.src([MEDIA + 'bower_components/bootstrap/dist/css/bootstrap.min.css',MEDIA + 'bower_components/font-awesome/css/font-awesome.min.css', MEDIA + 'assets/fontastic/styles.css', MEDIA + 'assets/error/index.css'])
+      .pipe(plumber())
+      .pipe(concatCss('error.min.css'))
+      .pipe(minifyCss())
+      .pipe(replace('../../../font-awesome/fonts/', BASE_URL + 'dist/assets/'))
+      .pipe(replace('../../../assets/fontastic/fonts/', 'assets/'))
+      .pipe(gulp.dest(DESTINO + 'assets'));
+});
+
 gulp.task('app', function(){
   gulp.src([DESTINO + 'assets/libs.min.js',  MEDIA + 'layouts/site.js',  MEDIA + 'models/usuario.js', MEDIA + 'views/home.js', MEDIA + 'views/buscar.js', MEDIA + 'views/contacto.js',  MEDIA + 'views/registro.js', MEDIA + 'views/_form_registro.js', MEDIA + 'views/login.js', MEDIA + 'views/_form_login.js' , MEDIA + 'views/_form_contrasenia.js' ,MEDIA + 'routes/router.js'])
     //.pipe(uglify())

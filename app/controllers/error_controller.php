@@ -4,8 +4,15 @@ class ErrorController extends Controller
 {
     public static function error_404()
     {
-        Flight::view()->assign('partial', 'error/404.tpl');
-        Flight::view()->display('layouts/blank.tpl');
+       $layout_data = array(
+            'title' => 'Página no econtrada',
+            'css' => 'dist/assets/error.min.css',
+            'js' => '',
+            'data' => ''
+        );
+
+        Flight::render('error/404', array(), 'partial');
+        Flight::render('layouts/blank', $layout_data);
     }
 }
 

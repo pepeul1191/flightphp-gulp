@@ -29,11 +29,9 @@ Flight::route('GET /demo/db', array('DemoController','listar_usuarios'));
 #Flight::route('GET /demo/partial/@valor', array('DemoController','partial'));
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-/*
 Flight::map('notFound', function(){
 	Flight::redirect('/error/404');
 });
-*/
 Flight::start();
 
 ?>

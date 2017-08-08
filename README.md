@@ -20,12 +20,13 @@
 	
 	$ gulp layout && grub app 
 
-### Fuentes externas:
+### Fuentes externas de vistas HTML:
 
 + Home : https://bootsnipp.com/snippets/1BQNV
 + Login form : https://bootsnipp.com/snippets/featured/modal-login-with-jquery-effects
 + Contacto : https://bootsnipp.com/snippets/zD4p9
 + Footer : https://bootsnipp.com/snippets/GQmaP
++ Error404 : https://bootsnipp.com/snippets/OeKdM
 
 ### TODO
 
