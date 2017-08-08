@@ -25,12 +25,14 @@
     <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
     <span id="text-login-msg">Ingrese su usuarioy contraseña</span>
   </div>
+  <span class="texto-validacion"></span>
   <input id="login_usuario" class="form-control" type="text" placeholder="Usuario">
+  <span class="texto-validacion"></span>
   <input id="login_contrasenia" class="form-control" type="password" placeholder="Contraseña">
 </div>
 <div class="modal-footer">
   <div>
-    <button type="submit" class="btn btn-primary btn-block" id="btnIngresar">Ingresar</button>
+    <button type="button" class="btn btn-primary btn-block" id="btnIngresar">Ingresar</button>
   </div>
   <div>
     <button id="login_lost_btn" type="button" class="btn btn-link">Olvidó su contraseña?</button>
@@ -49,7 +51,7 @@
   </div>
   <div class="modal-footer">
     <div>
-      <button type="submit" class="btn btn-primary btn-block" id="btnEnviarContrasenia">Enviar Contraseña</button>
+      <button type="button" class="btn btn-primary btn-block" id="btnEnviarContrasenia">Enviar Contraseña</button>
     </div>
     <div>
       <button id="lost_login_btn" type="button" class="btn btn-link">Login</button>
@@ -60,7 +62,7 @@
 
 <script type="text/javascript">
   $(function() {
-    
+
     var $formLogin = $('#login-form');
     var $formLost = $('#lost-form');
     var $divForms = $('#div-forms');
