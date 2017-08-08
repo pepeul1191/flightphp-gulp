@@ -3,6 +3,12 @@
 */
 
 $( document ).ready(function() {
+	$("#btn-to-navbar").click(function(){
+		$('html, body').animate({
+            scrollTop: $(".navbar").offset().top
+        }, 1000);
+	});
+
 	var home_template = $("#header-template").html();
 	var template = Handlebars.compile(home_template);
 

@@ -119,7 +119,10 @@
            </div>
      </div>
      <footer>
-            <div class="container">Sitio desarrollado y soportado por Software Web Perú - <a href="http://softweb.pe/">Ir</a></div>
+            <div class="container">
+                Sitio desarrollado y soportado por Software Web Perú - <a href="http://softweb.pe/">Ir</a>
+                <span id="btn-to-navbar" class="glyphicon glyphicon-upload pull-right" aria-hidden="true" style="font-size: 20px"></span>
+            </div>
     </footer>
      <!-- Fin App -->
     <script id="header-template" type="text/x-handlebars-template">
