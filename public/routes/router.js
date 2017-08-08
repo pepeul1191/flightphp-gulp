@@ -29,8 +29,11 @@ routes: {
 		buscarView.render();
 	},
 	showContacto: function(){
-		var contactoView = new ContactoView({});
-		contactoView.render();
+		//var contactoView = new ContactoView({});
+		//contactoView.render();
+		$('html, body').animate({
+            scrollTop: $("#contacto").offset().top
+        }, 2000);
 	},
 	showRegistro: function(){
 		var registroView = new RegistroView({});
