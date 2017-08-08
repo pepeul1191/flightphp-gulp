@@ -34,6 +34,7 @@
 + El menú del sitio debe ser un backboneView con su propio model
 + Cuando se usa la validación de campos en forms del login el contenedor del todo el login no se expande con el contenido
 + Hacer que el login se comunique con el servidor mediante AJAX
++ Hacer el error 404 pero con backbone en las rutas marionette de la aplicación
 
 ---
 
