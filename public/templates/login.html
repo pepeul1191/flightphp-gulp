@@ -81,7 +81,7 @@
     function modalAnimate ($oldForm, $newForm) {
         var $oldH = $oldForm.height();
         var $newH = $newForm.height();
-        $divForms.css("height",$oldH);
+        $divForms.css("height","auto");
         $oldForm.fadeToggle($modalAnimateTime, function(){
             $divForms.animate({height: $newH}, $modalAnimateTime, function(){
                 $newForm.fadeToggle($modalAnimateTime);
