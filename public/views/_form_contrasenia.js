@@ -8,7 +8,7 @@ var FormContraseniaView = Backbone.View.extend({
 
 	},
 	events: {
-	    "click #btnbtnEnviarContrasenia": "enviarContrasenia"
+	    "click #btnEnviarContrasenia": "enviarContrasenia"
 	},
 	render: function() {
 		var data = { };
@@ -19,29 +19,29 @@ var FormContraseniaView = Backbone.View.extend({
 		return this;
 	},
 	validarCorreoLleno: function(event) {
-		if($("#txtCorreo").val() == ""){
-			$("#txtCorreo").parent().addClass("has-error");
-     		$("#txtCorreo").parent().find("span").html("Tiene que ingresar un correo");
+		if($("#txtContraseniaFormContrasenia").val() == ""){
+			$("#lblValidacionContraseniaFormContrasenia").addClass("has-error");
+     		$("#lblValidacionContraseniaFormContrasenia").html("Tiene que ingresar un correo");
      		this.model.set({correo_valido : false});
 		}
 	}, 
 	validarCorreoFormato: function(event) {
 		   var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		   var rpta = re.test($("#txtCorreo").val());
+		   var rpta = re.test($("#txtContraseniaFormContrasenia").val());
 		   if(rpta == false){
-		   	$("#txtCorreo").parent().addClass("has-error");
-     			$("#txtCorreo").parent().find("span").html("El correo ingresado no es de un formato válido");
+		   	$("#lblValidacionContraseniaFormContrasenia").addClass("has-error");
+     			$("#lblValidacionContraseniaFormContrasenia").html("El correo ingresado no es de un formato válido");
 		   	this.model.set({correo_valido : false});
 		   }else{
-		   	$("#txtCorreo").parent().removeClass("has-error");
-     			$("#txtCorreo").parent().find("span").html("");
+		   	$("#lblValidacionContraseniaFormContrasenia").removeClass("has-error");
+     			$("#lblValidacionContraseniaFormContrasenia").html("");
 		   	this.model.set({correo_valido : true});
 		   }
 	}, 
 	enviarContrasenia: function(event){
 		//this.validarContraseniaIgual();
-		this.validarUsuarioLleno();
-		this.validarContraseniaLleno();
+		this.validarCorreoFormato();
+		this.validarCorreoLleno();
 		this.model.validar();
 		if(this.model.get("valido") == true){
 			console.log(this.model.toJSON());

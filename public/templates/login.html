@@ -21,24 +21,24 @@
 
 <script id="login-template" type="text/x-handlebars-template">
   <div class="modal-body">
-  <div id="div-login-msg">
-    <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
-    <span id="text-login-msg">Ingrese su usuarioy contraseña</span>
+    <div id="div-login-msg">
+      <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
+      <span id="text-login-msg">Ingrese su usuarioy contraseña</span>
+    </div>
+    <label id="lblValidacionLoginFormUsuario" class="texto-validacion"></label>
+    <input id="txtLoginFormUsuario" class="form-control" type="text" placeholder="Usuario">
+    <label id="lblValidacionLoginFormContrasenia" class="texto-validacion"></label>
+    <input id="txtLoginFormContrasenia" class="form-control" type="password" placeholder="Contraseña">
   </div>
-  <span class="texto-validacion"></span>
-  <input id="login_usuario" class="form-control" type="text" placeholder="Usuario">
-  <span class="texto-validacion"></span>
-  <input id="login_contrasenia" class="form-control" type="password" placeholder="Contraseña">
-</div>
-<div class="modal-footer">
-  <div>
-    <button type="button" class="btn btn-primary btn-block" id="btnIngresar">Ingresar</button>
+  <div class="modal-footer">
+    <div>
+      <button type="button" class="btn btn-primary btn-block" id="btnIngresar">Ingresar</button>
+    </div>
+    <div>
+      <button id="login_lost_btn" type="button" class="btn btn-link">Olvidó su contraseña?</button>
+      <a href="#/registro" class="btn btn-link registro_btn">Registrarse</a>
+    </div>
   </div>
-  <div>
-    <button id="login_lost_btn" type="button" class="btn btn-link">Olvidó su contraseña?</button>
-    <a href="#/registro" class="btn btn-link registro_btn">Registrarse</a>
-  </div>
-</div>
 </script>
 
 <script id="contrasenia-template" type="text/x-handlebars-template">
@@ -47,7 +47,8 @@
       <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>
       <span id="text-lost-msg">Ingrese su correo</span>
     </div>
-    <input id="login_correo" class="form-control" type="text" placeholder="Correo">
+    <label id="lblValidacionContraseniaFormContrasenia" class="texto-validacion"></label>
+    <input id="txtContraseniaFormContrasenia" class="form-control" type="text" placeholder="Correo">
   </div>
   <div class="modal-footer">
     <div>

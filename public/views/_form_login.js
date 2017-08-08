@@ -20,25 +20,25 @@ var FormLoginView = Backbone.View.extend({
 	},
 	validarUsuarioLleno: function(event) {
 		if(this.model.get("usuario_valido") != false){
-			if($("#txtUsuario").val() == ""){
-				$("#txtUsuario").parent().addClass("has-error");
-	      	$("#txtUsuario").parent().find("span").html("Debe ingresar un usuario");
+			if($("#txtLoginFormUsuario").val() == ""){
+				$("#lblValidacionLoginFormUsuario").addClass("has-error");
+	      	$("#lblValidacionLoginFormUsuario").html("Debe ingresar un usuario");
 	      	this.model.set({usuario_lleno : false});
 			}else{
-				$("#txtUsuario").parent().removeClass("has-error");
-	      	$("#txtUsuario").parent().find("span").html("");
+				$("#lblValidacionLoginFormUsuario").removeClass("has-error");
+	      	$("#lblValidacionLoginFormUsuario").html("");
 	      	this.model.set({usuario_lleno : true});
 			}
 		}
 	},
 	validarContraseniaLleno: function(event) {
-		if($("#txtContrasenia").val() == ""){
-			$("#txtContrasenia").parent().addClass("has-error");
-     		$("#txtContrasenia").parent().find("span").html("Tiene que ingresar su contraseña");
+		if($("#txtLoginFormContrasenia").val() == ""){
+			$("#lblValidacionLoginFormContrasenia").addClass("has-error");
+     		$("#lblValidacionLoginFormContrasenia").html("Tiene que ingresar su contraseña");
      		this.model.set({contrasenia_valido : false});
 		}else{
-			$("#txtContrasenia").parent().removeClass("has-error");
-     		$("#txtContrasenia").parent().find("span").html("");
+			$("#lblValidacionLoginFormContrasenia").removeClass("has-error");
+     		$("#lblValidacionLoginFormContrasenia").html("");
      		this.model.set({contrasenia_valido : true});
 		}
 	}, 
