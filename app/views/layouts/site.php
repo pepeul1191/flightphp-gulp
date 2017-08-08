@@ -21,104 +21,93 @@
      <!-- Inicio App -->
     <div id="header-app"></div>
     <div id="body-app"></div>
-    <hr>
     <div id="contacto">
           <div class="contact-us">
                <div class="container">
                   <h1 class="titulo-seccion">CONTACTO</h1>
                   <div class="contact-form">
                    <div class="row">
-                       <div class="col-sm-7">                  
-                            <form id="ajax-contact"  method="post" action="contact-form-mail.php" role="form">
+                       <div class="col-sm-6">                  
                                 <div class="messages" id="form-messages"></div>
                                 <div class="controls">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="form_name">Firstname *</label>
-                                                <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">
-                                                <div class="help-block with-errors"></div>
+                                                <label for="form_name">Nombre(s) *</label>
+                                                <input id="form_name" type="text" name="name" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="form_lastname">Lastname *</label>
-                                                <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.">
-                                                <div class="help-block with-errors"></div>
+                                                <label for="form_lastname">Apellido(s) *</label>
+                                                <input id="form_lastname" type="text" name="surname" class="form-control">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="form_email">Email *</label>
-                                                <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
-                                                <div class="help-block with-errors"></div>
+                                                <label for="form_email">Correo Electrónico *</label>
+                                                <input id="form_email" type="email" name="email" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="form_phone">Phone*</label>
-                                                <input id="form_phone" type="tel" name="phone"  class="form-control" placeholder="Please enter your phone*" required oninvalid="setCustomValidity('Plz enter your correct phone number ')"
-            onchange="try{setCustomValidity('')}catch(e){}">
-                                                
+                                                <label for="form_phone">Teléfono </label>
+                                                <input id="form_phone" type="text" name="name" class="form-control">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="form_message">Message *</label>
-                                                <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please,leave us a message."></textarea>
-                                                <div class="help-block with-errors"></div>
+                                                <label for="form_message">Mensaje *</label>
+                                                <textarea id="form_message" name="message" class="form-control" rows="5"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
-                                            <input type="submit" class="btn btn-black" value="Send message">
+                                            <button class="btn btn-primary">Enviar Mensaje</button>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
                                            <br>
-                                            <small class="text-muted"><strong>*</strong> These fields are required.</small>
+                                            <small class="text-muted"><strong>*</strong> Campos requeridos.</small>
                                         </div>
                                     </div>
                                 </div>
-
-                            </form>
-            
                        </div>
-                       <div class="col-sm-5">
+                       <div class="col-sm-6">
                            <div class="row col1">
-                               <div class="col-xs-3">
-                                   <i class="fa fa-map-marker" style="font-size:16px;"></i>   Address
+                               <div class="col-xs-5">
+                                   <i class="fa fa-map-marker" style="font-size:16px;"></i>   Dirección
                                </div>
-                               <div class="col-xs-9">
+                               <div class="col-xs-7">
                                     One Gateway Center, Suite 25500+,<br> Newark 23, NJ 10235
                                </div>
                            </div>
                            
                             <div class="row col1">
-                                <div class="col-sm-3">
-                                    <i class="fa fa-phone"></i>   Phone
+                                <div class="col-sm-5">
+                                    <i class="fa fa-phone"></i>   Teléfono
                                 </div>
-                                <div class="col-sm-9">
+                                <div class="col-sm-7">
                                      +(91) 123 277 4239
                                 </div>
                             </div>
                             <div class="row col1">
-                                <div class="col-sm-3">
+                                <div class="col-sm-5">
                                      <i class="fa fa-fax"></i>    Fax  
                                 </div>
-                                <div class="col-sm-9">
+                                <div class="col-sm-7">
                                       123 123 4567
                                 </div>
                             </div>
                             <div class="row col1">
-                                <div class="col-sm-3">
-                                    <i class="fa fa-envelope"></i>   Email
+                                <div class="col-sm-5">
+                                    <i class="fa fa-envelope"></i>   Correo Electrónico
                                 </div>
-                                <div class="col-sm-9">
+                                <div class="col-sm-7">
                                      <a href="mailto:info@yourdomain.com">info@yourdomain.com</a> <br> <a href="mailto:support@yourdomain.com">support@yourdomain.com</a>
                                 </div>
                             </div><br>

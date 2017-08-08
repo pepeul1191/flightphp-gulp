@@ -33,7 +33,7 @@ routes: {
 		//contactoView.render();
 		$('html, body').animate({
             scrollTop: $("#contacto").offset().top
-        }, 2000);
+        }, 1000);
 	},
 	showRegistro: function(){
 		var registroView = new RegistroView({});
