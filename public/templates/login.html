@@ -9,50 +9,55 @@
     <!-- Begin # DIV Form -->
     <div id="div-forms">
       <!-- Begin # Login Form -->
-      <form id="login-form">
-        <div class="modal-body">
-          <div id="div-login-msg">
-            <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
-            <span id="text-login-msg">Ingrese su usuarioy contraseña</span>
-          </div>
-          <input id="login_username" class="form-control" type="text" placeholder="Usuario">
-          <input id="login_password" class="form-control" type="password" placeholder="Contraseña">
-        </div>
-        <div class="modal-footer">
-          <div>
-            <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
-          </div>
-          <div>
-            <button id="login_lost_btn" type="button" class="btn btn-link">Olvidó su contraseña?</button>
-            <a href="#/registro" class="btn btn-link registro_btn">Registrarse</a>
-          </div>
-        </div>
-      </form>
-    <!-- End # Login Form -->                 
-    <!-- Begin | Lost Password Form -->
-    <form id="lost-form" style="display:none;">
-      <div class="modal-body">
-        <div id="div-lost-msg">
-          <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>
-          <span id="text-lost-msg">Ingrese su correo</span>
-        </div>
-        <input id="lost_email" class="form-control" type="text" placeholder="Correo">
-      </div>
-      <div class="modal-footer">
-        <div>
-          <button type="submit" class="btn btn-primary btn-block">Enviar Contraseña</button>
-        </div>
-        <div>
-          <button id="lost_login_btn" type="button" class="btn btn-link">Login</button>
-          <a href="#/registro" class="btn btn-link registro_btn">Registrarse</a>
-        </div>
-      </div>
-    </form>
-    <!-- End | Lost Password Form -->
+      <form id="login-form"></form>
+      <!-- End # Login Form -->                 
+      <!-- Begin | Lost Password Form -->
+      <form id="lost-form" style="display:none;"></form>
+      <!-- End | Lost Password Form -->
     </div>
     <!-- End # DIV Form -->   
   </div>
 </div>
+
+<script id="login-template" type="text/x-handlebars-template">
+  <div class="modal-body">
+  <div id="div-login-msg">
+    <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
+    <span id="text-login-msg">Ingrese su usuarioy contraseña</span>
+  </div>
+  <input id="login_usuario" class="form-control" type="text" placeholder="Usuario">
+  <input id="login_contrasenia" class="form-control" type="password" placeholder="Contraseña">
+</div>
+<div class="modal-footer">
+  <div>
+    <button type="submit" class="btn btn-primary btn-block" id="btnIngresar">Ingresar</button>
+  </div>
+  <div>
+    <button id="login_lost_btn" type="button" class="btn btn-link">Olvidó su contraseña?</button>
+    <a href="#/registro" class="btn btn-link registro_btn">Registrarse</a>
+  </div>
+</div>
+</script>
+
+<script id="contrasenia-template" type="text/x-handlebars-template">
+  <div class="modal-body">
+    <div id="div-lost-msg">
+      <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>
+      <span id="text-lost-msg">Ingrese su correo</span>
+    </div>
+    <input id="login_correo" class="form-control" type="text" placeholder="Correo">
+  </div>
+  <div class="modal-footer">
+    <div>
+      <button type="submit" class="btn btn-primary btn-block" id="btnEnviarContrasenia">Enviar Contraseña</button>
+    </div>
+    <div>
+      <button id="lost_login_btn" type="button" class="btn btn-link">Login</button>
+      <a href="#/registro" class="btn btn-link registro_btn">Registrarse</a>
+    </div>
+  </div>
+</script>
+
 <script type="text/javascript">
   $(function() {
     
@@ -62,7 +67,9 @@
     var $modalAnimateTime = 300;
 
     $("form").click(function (event) {
-      if($(event.target).hasClass("registro_btn")){$(".close").click();}
+      if($(event.target).hasClass("registro_btn")){
+        $(".close").click();
+      }
     });
     
     $('#login_lost_btn').click( function () { modalAnimate($formLogin, $formLost); });

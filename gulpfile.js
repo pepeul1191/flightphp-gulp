@@ -66,7 +66,7 @@ gulp.task('layout', ['fonts', 'layout-css', 'layout-js']);
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 gulp.task('app', function(){
-  gulp.src([DESTINO + 'assets/libs.min.js',  MEDIA + 'layouts/site.js',  MEDIA + 'models/usuario.js', MEDIA + 'views/home.js', MEDIA + 'views/buscar.js', MEDIA + 'views/contacto.js',  MEDIA + 'views/registro.js', MEDIA + 'views/_form_registro.js', MEDIA + 'views/login.js',  MEDIA + 'routes/router.js'])
+  gulp.src([DESTINO + 'assets/libs.min.js',  MEDIA + 'layouts/site.js',  MEDIA + 'models/usuario.js', MEDIA + 'views/home.js', MEDIA + 'views/buscar.js', MEDIA + 'views/contacto.js',  MEDIA + 'views/registro.js', MEDIA + 'views/_form_registro.js', MEDIA + 'views/login.js', MEDIA + 'views/_form_login.js' , MEDIA + 'views/_form_contrasenia.js' ,MEDIA + 'routes/router.js'])
     //.pipe(uglify())
     .pipe(plumber())
     .pipe(concatJs('app.min.js'))

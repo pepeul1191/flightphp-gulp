@@ -2,7 +2,6 @@
 Archivos que usa :
 	+ models/usuario.js
 */
-
 var FormRegistroView = Backbone.View.extend({
 	el: '#div-registro',
 	initialize: function(){

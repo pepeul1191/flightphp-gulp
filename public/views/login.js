@@ -1,3 +1,9 @@
+/*
+Archivos que usa :
+	+ views/_form_login.js
+	+ views/_form_contrasenia.js
+	+ models/usuario.js
+*/
 var LoginView = Backbone.View.extend({
 	el: '#modal-container',
 	initialize: function(){
@@ -7,6 +13,11 @@ var LoginView = Backbone.View.extend({
 	render: function(){
 		$("#btnModal").click(); 
 		this.$el.html(this.getTemplate());
+		var usuario = new Usuario();
+		var formLogin = new FormLoginView({model:usuario});
+		var formContrasenia = new FormContraseniaView({model:usuario});
+		formLogin.render(); 
+		formContrasenia.render();
 	}, 
 	getTemplate: function() {
 		var data = { };
